@@ -1,0 +1,63 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <div class="card">
+
+        <div class="card-body">
+
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+
+            <strong>
+
+                {{record.first_name|upper}}
+    
+                {{record.last_name}}
+    
+            </strong>
+    
+            <hr> 
+
+            <p> <strong> ID: </strong> {{record.id}} </p>
+
+            <p> <strong> Email: </strong> {{record.email}} </p> 
+
+            <p> <strong> Telefone: </strong> {{record.phone}} </p>
+
+            <p> <strong> Endereço: </strong> {{record.address}} </p>
+
+            <p> <strong> CPF: </strong> {{record.cpf}} </p>
+            
+            <p> <strong> Estado: </strong> {{record.state}} </p>
+            
+            <p> <strong> Cargo: </strong> {{record.position}} </p>
+
+            <p> <strong> Data de Criação: </strong> {{record.creation_date}} </p>
+
+        </div>
+
+
+
+
+    </div>
+
+    <br>
+
+    <a href="{% url 'dashboard' %}" class="btn btn-primary">
+         Voltar &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </a>
+
+    &nbsp;
+
+    <a href="{% url 'update-record' record.id %}" class="btn btn-info">
+        Atualizar cadastro &nbsp; <i class="fa fa-plus" aria-hidden="true"></i>
+   </a>
+
+   &nbsp;
+
+    <a href="{% url 'delete-record' record.id %}" class="btn btn-danger">
+        Deletar &nbsp; <i class="fa fa-minus" aria-hidden="true"></i>
+   </a>
+
+
+{% endblock %}

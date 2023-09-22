@@ -1,0 +1,75 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h3>olá {{user}}, esta é a sua dashboard </h3>
+
+    <hr>
+
+    <a class="btn btn-outline-primary" href="{% url 'create-record' %}">
+        Criar novo cadastro &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+    </a>
+
+    <hr>
+
+    <table class="table table-hover table-bordered">
+
+        <thead class="table-dark">
+
+            <tr>
+
+                <th scope="col"> ID </th>
+                <th scope="col"> Nome </th>
+                <th scope="col"> Email </th>
+                <th scope="col"> Telefone </th>
+                <th scope="col"> Endereço </th>
+                <th scope="col"> CPF </th>
+                <th scope="col"> Estado </th>
+                <th scope="col"> Cargo </th>
+
+                <th scope="col"> Data </th>
+
+                <th scope="cool"> Ver </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% if records %}    
+
+            {% for record in records %}
+    
+            <tr>
+
+                <td> {{record.id}} </td>
+
+                <td> {{record.first_name}} {{record.last_name}} </td>
+
+                <td> {{record.email}} </td>
+                
+                <td> {{record.phone}} </td>
+                
+                <td> {{record.address}} </td>
+                
+                <td> {{record.cpf}} </td>
+                
+                <td> {{record.state}} </td>
+
+                <td> {{record.position}} </td>
+
+                <td> {{record.creation_date}} </td>
+
+                <td> <a class="btn btn-primary btn-sm" href="{% url 'record' record.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a> </td>
+
+            </tr>
+
+           {% endfor %} 
+
+        {% endif %}    
+
+        </tbody>
+    </table>
+
+{% endblock %}
